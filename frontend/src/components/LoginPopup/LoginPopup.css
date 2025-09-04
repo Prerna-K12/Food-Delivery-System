@@ -1,14 +1,15 @@
-.login-popup{
+.login-popup {
     position: absolute;
     z-index: 1;
     width: 100%;
     height: 100%;
     background-color: #00000090;
-    display: grid; 
-}
-.login-popup-container{
+    display: grid;
+  }
+  
+  .login-popup-container {
     place-self: center;
-    width:max(23vw,330px);
+    width: max(23vw, 330px);
     color: #808080;
     background-color: white;
     display: flex;
@@ -18,30 +19,74 @@
     border-radius: 8px;
     font-size: 14px;
     animation: fadeIn 0.5s;
-
-}
-.login-popup-title{
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .login-popup-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: black;
-}
-.login-popup-title img{
+  }
+  
+  .login-popup-title img {
     width: 16px;
     cursor: pointer;
-}
-.login-popup-inputs{
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .login-popup-inputs {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-.login-popup-inputs input{
+  }
+  
+  .login-popup-inputs input {
     outline: none;
     border: 1px solid #c9c9c9;
     padding: 10px;
     border-radius: 4px;
-}
-.login-popup-container button{
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-popup-inputs input:focus {
+    border-color: tomato;
+    box-shadow: 0 0 5px tomato;
+  }
+  
+  .error {
+    color: tomato;
+    font-size: 12px;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+  
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: tomato;
+    font-weight: 600;
+    font-size: 13px;
+    user-select: none;
+  }
+  
+  .login-popup-container button[type="submit"] {
     border: none;
     padding: 10px;
     border-radius: 4px;
@@ -49,18 +94,102 @@
     background-color: tomato;
     font-size: 15px;
     cursor: pointer;
-}
-.login-popup-condition{
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-popup-container button[type="submit"]:disabled {
+    background-color: #e07b7b;
+    cursor: not-allowed;
+  }
+  
+  .login-popup-container button[type="submit"]:hover:not(:disabled) {
+    background-color: #d14c4c;
+  }
+  
+  .login-popup-condition {
     display: flex;
     align-items: start;
     gap: 8px;
     margin-top: -15px;
-}
-.login-popup-condition input{
+    font-size: 13px;
+    color: #555;
+  }
+  
+  .login-popup-condition input {
     margin-top: 5px;
-}
-.login-popup p span{
+    cursor: pointer;
+  }
+  
+  .login-popup p span {
     color: tomato;
     font-weight: 500;
     cursor: pointer;
-}
+    user-select: none;
+  }
+  
+  .login-popup-switch p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .login-popup-switch p span {
+    color: tomato;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    text-decoration: underline;
+  }
+  
+  .login-popup-switch p span:focus {
+    outline: 2px solid tomato;
+    outline-offset: 2px;
+  }
+  
+  .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #555;
+  }
+  
+  .remember-forgot label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .remember-forgot input[type="checkbox"] {
+    margin-right: 6px;
+    cursor: pointer;
+  }
+  
+  .forgot-password {
+    background: none;
+    border: none;
+    color: tomato;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: underline;
+    padding: 0;
+    user-select: none;
+  }
+  
+  .forgot-password:hover,
+  .login-popup-switch p span:hover {
+    color: #b33a3a;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
