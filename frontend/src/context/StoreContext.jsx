@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import {food_list} from '../assets/frontend_assets/assets.js'
 
 export const StoreContext = createContext(null);
 
@@ -8,7 +9,7 @@ const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const url = "https://food-delivery-backend-5b6g.onrender.com";
   const [token, setToken] = useState("");
-  const [food_list, setFoodList] = useState([]);
+ 
 
   const addToCart = async (itemId) => {
     if (!cartItems[itemId]) {
@@ -58,12 +59,7 @@ const StoreContextProvider = (props) => {
   };
 
   const fetchFoodList = async () => {
-    const response = await axios.get(url + "/api/food/list");
-    if (response.data.success) {
-      setFoodList(response.data.data);
-    } else {
-      alert("Error! Products are not fetching..");
-    }
+    const response = await axios.get(url + "/api/food/list"); 
   };
 
   const loadCardData = async (token) => {
